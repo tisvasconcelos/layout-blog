@@ -1,0 +1,42 @@
+/* variables */
+$font-base    : 16;
+$font-measure : em;
+$menu-width   : 927px;
+$link-color   : #025ec7;
+$text-color   : #484848;
+
+/* sprites */
+$icons: sprite-map("ico/*.png");
+
+/* imports */
+@import "base/reset";
+@import "base/preset";
+@import "base/panel/grid";
+@import "base/fallback";
+@import "mixins";
+
+/* viewport */
+@viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport  { width: device-width; }
+
+/* ==========================================================================
+   Common to all pages
+   ========================================================================== */
+body {
+    font: normal normal 100%/1.5 Arial, sans-serif;
+    -webkit-print-color-adjust:exact;
+}
+ 
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover, &:focus{
+        text-decoration: underline;
+    }
+}
+
+strong{
+    font-weight: bold;
+}

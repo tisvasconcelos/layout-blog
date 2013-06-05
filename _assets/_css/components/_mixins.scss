@@ -1,0 +1,56 @@
+@import "compass";
+
+@mixin font($font-elem, $interrow) {
+    font-size: ($font-elem/$font-base)+$font-measure;
+    line-height: $interrow/$font-elem;
+}
+
+@mixin box_gradient($icolor: #cccccc, $fcolor: #000000) {
+    background-color: $icolor;
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(top, $icolor, $fcolor));
+}
+
+@mixin box_gradient_radial($orientation, $type, $icolor, $fcolor){
+    background: -webkit-radial-gradient($orientation, $type, $icolor, $fcolor);
+    background: -moz-radial-gradient($orientation, $type, $icolor, $fcolor);
+    background: -o-radial-gradient($orientation, $type, $icolor, $fcolor);
+    background: -ms-radial-gradient($orientation, $type, $icolor, $fcolor);
+    background: radial-gradient($orientation, $type, $icolor, $fcolor);
+}
+
+@mixin box_round($measure) {
+    border-radius: $measure;
+    -moz-border-radius: $measure;
+    -webkit-border-radius: $measure;
+    -webkit-background-clip: padding-box; 
+    -moz-background-clip: padding; 
+    background-clip: padding-box;
+}
+
+@mixin box_shadow($config: inset 0px 5px 10px #d6d6d6, $second: inset 0px 0px 0px #fff) {
+    -moz-box-shadow: $config, $second;
+    -webkit-box-shadow: $config, $second;
+    box-shadow: $config, $second;
+}
+
+@mixin opacity($value){
+    $ie: $value * 100;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity="+$ie+")";
+    filter: alpha(opacity=$ie);
+    opacity: $value;
+}
+
+@mixin transform_rotate($value) {
+    transform: rotate($value);
+    -ms-transform: rotate($value); /* IE 9 */
+    -moz-transform: rotate($value); /* Firefox */
+    -webkit-transform: rotate($value); /* Safari and Chrome */
+    -o-transform: rotate($value); /* Opera */
+}
+
+@mixin icon_sprite($sprite, $icon){
+    width: image-width('ico/'+$icon+'.png');
+    height: image-height('ico/'+$icon+'.png');
+    background-position: sprite-position($sprite, $icon);
+}
