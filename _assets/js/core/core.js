@@ -1,0 +1,1 @@
+Object.prototype.extend=function(a){for(method in a)this[method]=a[method];return a};Core=function(){loadDependencies=function(){Modernizr.load({test:window.jQuery,nope:"js/vendor/jquery.min.js"})};this.test=function(a){console.log(a)};this.error=[];this.error.show=function(){console.error("Erro custom")};loadDependencies();init=void 0};
