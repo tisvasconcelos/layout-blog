@@ -4,14 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Blog</title>
 	<link rel="stylesheet" href="_assets/css/modules/home.css" />
-	<script src="js/vendor/head.load.min.js"></script>
+	<script src="_assets/_js/vendor/head.load.min.js"></script>
 </head>
 <body>
 
 	<section>
 		<header>
 			<h1>
-				<a href="#" title="BLOGNAME">BLOGNAME</a>
+				<a href="#" title="BLOGNAME">
+					<img src="_assets/img/logo.png" width="100%" alt="BLOGNAME" />
+				</a>
 			</h1>
 
 			<nav>
@@ -24,32 +26,44 @@
 
 		<main>
 			<article>
-				<h3><a href="#" title="Title">Title</a></h3>
+				<h3><a href="#" title="Lorm ipsum">Lorem ipsum</a></h3>
 				<div>
-					Lorem ipsum
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, quisquam, rem iste dicta aliquam voluptate totam harum voluptatem molestias quo porro nam perspiciatis architecto pariatur dignissimos minus libero quasi omnis.
+					</p>
+					<p>
+						Rem, incidunt, culpa velit voluptas porro fugiat minus asperiores veniam praesentium necessitatibus ratione laudantium hic quae earum dolor alias et esse minima nesciunt magnam tenetur repudiandae qui id error recusandae.
+					</p>
+					<p>
+						Unde, deleniti, facilis incidunt omnis ex magnam aut eligendi earum rerum necessitatibus cum illum mollitia praesentium dolor esse adipisci natus et a laudantium numquam laboriosam eveniet dicta beatae dignissimos soluta!
+					</p>
 				</div>
+				<nav>
+					<a href="#" class="more" title="Ver mais">Ver mais</a>
+				</nav>
+			</article>
+			<article>
+				<h3><a href="#" title="Amor Nerd">Amor Nerd</a></h3>
+				<a href="#" title="Amor Nerd"><img src="_assets/img/cama.jpg" alt="Amor Nerd" width="100%" /></a>
 			</article>
 			<article>
 				<h3><a href="#" title="Title">Title</a></h3>
 				<div>
 					Lorem ipsum
 				</div>
-			</article>
-			<article>
-				<h3><a href="#" title="Title">Title</a></h3>
-				<div>
-					Lorem ipsum
-				</div>
+				<nav>
+					<a href="#" class="more" title="Ver mais">Ver mais</a>
+				</nav>
 			</article>
 		</main>
 	</section>
 
 	<script>
 	head.js(
-		'_js/vendor/jquery.min.js',
-		'_js/vendor/modernizr.custom.js',
-		'_js/core/core.js',
-		'_js/modules/home.js',
+		'_assets/_js/vendor/jquery.min.js',
+		'_assets/_js/vendor/modernizr.custom.js',
+		'_assets/_js/core/core.js',
+		'_assets/_js/modules/home.js',
 		function(){
 			new Home();
 		}

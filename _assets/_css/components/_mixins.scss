@@ -19,6 +19,13 @@
     background: radial-gradient($orientation, $type, $icolor, $fcolor);
 }
 
+@mixin transition($effect: all 200ms ease-out){
+    -webkit-transition: $effect;
+    -moz-transition: $effect;
+    -o-transition: $effect;
+    transition: $effect;
+}
+
 @mixin box_round($measure) {
     border-radius: $measure;
     -moz-border-radius: $measure;

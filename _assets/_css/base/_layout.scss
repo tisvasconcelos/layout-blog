@@ -8,6 +8,27 @@ $text-color   : #484848;
 /* sprites */
 //$icons: sprite-map("ico/*.png");
 
+/* susy */
+@import "susy";
+
+$total-columns  : 24;
+$column-width   : 20px;
+$gutter-width   : 20px;
+$grid-padding   : $gutter-width;
+
+$base-font-size: 16px;
+
+$show-grid-backgrounds: true;
+
+$legacy-support-for-ie  : true;
+$legacy-support-for-ie6 : $legacy-support-for-ie;
+$legacy-support-for-ie7 : $legacy-support-for-ie;
+
+//alternative layout breakpoints
+$mobile: 0 400px;
+$tablet: 0 768px;
+$computer: 939px;
+
 /* imports */
 @import "base/reset";
 @import "base/preset";
@@ -26,17 +47,196 @@ $text-color   : #484848;
 body {
     font: normal normal 100%/1.5 Arial, sans-serif;
     -webkit-print-color-adjust:exact;
+    width: 100%;
 }
  
 a {
     color: $link-color;
     text-decoration: none;
 
+    @include transition();
+
     &:hover, &:focus{
         text-decoration: underline;
+        color: #3a5976;
     }
 }
 
 strong{
     font-weight: bold;
+}
+
+section{
+    header{
+        background: #3a5976;
+        border-bottom: solid 3px #000;
+
+        a, a:hover, a:focus{
+            color: #fff;
+        }
+
+        h1{
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+            padding: 5px 0;
+
+            a{
+                display: inline-block;
+                font-weight: bold;
+                margin: 0 5px;
+                @include box_round(5px);
+                @include font(26,20);
+
+                &:hover, &:focus{
+                    @include box_shadow(0 0px 40px #fff);
+                    background: #fff;
+                }
+            }
+        }
+
+        nav{
+            display: block;
+            text-align: center;
+            padding: 0 0 25px 0;
+
+            li{
+                width: auto;
+                display: inline-block;
+                margin: 0 10px;
+
+                a{
+                    padding: 10px;
+                    @include box_round(5px);
+
+                    &:hover, &:focus{
+                        color: #3a5976;
+                        @include box_shadow(0 0px 20px #fff);
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        width: auto;
+        margin: 0 auto;
+
+        @include at-breakpoint($computer){
+            width: 940px;
+        }
+
+        display: block;
+        text-align: center;
+        padding: 0 0 30px 0;
+        box-sizing: border-box;
+
+        article{
+            margin: 20px 10px 0;
+            text-align: left;
+            position: relative;
+            color: #000;
+            @include box_round(5px);
+
+            h3{
+                margin: 10px 0;
+                z-index: 3;
+                position: relative;
+                padding: 0 10px;
+                @include font(20,20);
+
+                @include at-breakpoint($mobile){
+                    @include font(22,20);
+                }
+
+
+                @include transition();
+
+                a{
+                    color: #d1d1d1;
+                }
+            }
+
+            div{
+                padding: 0 10px;
+                @include font(14,20);
+                @include transition();
+
+                @include at-breakpoint($mobile){
+                    @include font(16,28);
+                    max-height: 86px;
+                    overflow: hidden;
+                }
+            }
+
+            nav{
+                display: block;
+                border-top: solid #d1d1d1 1px;
+                height: 28px;
+                margin-top: 10px;
+
+                a{
+                    &.more{
+                        border-left: solid #d1d1d1 1px;
+                        float: right;
+                        padding: 5px 10px;
+                        @include font(14,20);
+                        @include box_round(0 0 5px 0);
+
+                        &:after{
+                            content: "";
+                            width: 0;
+                            height: 0;
+                            border-top: 5px solid transparent;
+                            border-bottom: 5px solid transparent;
+                            border-left: 5px solid #3a5976;
+                            float: right;
+                            margin: 4px 0 0 5px;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 2;
+
+                @include opacity(0.3);
+
+                @include transition();
+            }
+
+            &.fully, &.partially{
+                border: solid #a5a5a5 1px;
+                color: #000;
+
+                h3 a{
+                    color: $link-color;
+                }
+
+                img{
+                    @include opacity(1);
+                }
+            }
+
+            &.not{
+                border: 0 none;
+                color: #d1d1d1;
+
+                h3 a{
+                    color: #d1d1d1;
+                }
+
+                img{
+                    @include opacity(0.1);
+                }
+            }
+        }
+    }
 }
