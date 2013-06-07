@@ -140,6 +140,10 @@ section{
             color: #000;
             @include box_round(5px);
 
+            &:hover{
+                @include box_shadow(0 0px 20px #c1c1c1);
+            }
+
             h3{
                 margin: 10px 0;
                 z-index: 3;
@@ -151,23 +155,17 @@ section{
                     @include font(22,20);
                 }
 
-
                 @include transition();
-
-                a{
-                    color: #d1d1d1;
-                }
             }
 
             div{
                 padding: 0 10px;
+                word-wrap: break-word;
                 @include font(14,20);
                 @include transition();
 
                 @include at-breakpoint($mobile){
                     @include font(16,28);
-                    max-height: 86px;
-                    overflow: hidden;
                 }
             }
 

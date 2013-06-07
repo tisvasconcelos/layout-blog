@@ -1618,6 +1618,11 @@ section main article {
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
+section main article:hover {
+  -moz-box-shadow: 0 0px 20px #c1c1c1, inset 0px 0px 0px white;
+  -webkit-box-shadow: 0 0px 20px #c1c1c1, inset 0px 0px 0px white;
+  box-shadow: 0 0px 20px #c1c1c1, inset 0px 0px 0px white;
+}
 section main article h3 {
   margin: 10px 0;
   z-index: 3;
@@ -1636,11 +1641,9 @@ section main article h3 {
     line-height: 0.90909;
   }
 }
-section main article h3 a {
-  color: #d1d1d1;
-}
 section main article div {
   padding: 0 10px;
+  word-wrap: break-word;
   font-size: 0.875em;
   line-height: 1.42857;
   -webkit-transition: all 200ms ease-out;
@@ -1652,8 +1655,6 @@ section main article div {
   section main article div {
     font-size: 1em;
     line-height: 1.75;
-    max-height: 86px;
-    overflow: hidden;
   }
 }
 section main article nav {
