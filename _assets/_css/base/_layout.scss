@@ -48,6 +48,10 @@ body {
     font: normal normal 100%/1.5 Arial, sans-serif;
     -webkit-print-color-adjust:exact;
     width: 100%;
+
+    &.disabled{
+        background: #000;
+    }
 }
  
 a {
@@ -150,44 +154,28 @@ section{
             text-align: left;
             position: relative;
             color: #000;
+            background: #fff;
             @include box_round(5px);
 
             &:hover{
                 @include box_shadow(0 0px 20px #c1c1c1);
             }
 
-            &.fully, &.partially{
-                border: solid #a5a5a5 1px;
-                color: #000;
+            border: solid #a5a5a5 1px;
+            color: #000;
 
-                h3 a{
-                    color: $link-color;
-                }
-
-                img{
-                    @include opacity(1);
-                }
-            }
-
-            &.not{
-                border: 0 none;
-                color: #d1d1d1;
-
-                h3 a{
-                    color: #d1d1d1;
-                }
-
-                img{
-                    @include opacity(0.1);
-                }
+            &.disabled{
+                @include opacity(0.1);
             }
 
             div{
-                h3, .title{
+                color: $text-color;
+                @include font(16,20);
+
+                h3{
                     display: block;
-                    margin: 15px 0;
-                    z-index: 3;
-                    position: relative;
+                    margin: 15px 10px;
+                    width: 100%;
                     @include font(24,20);
 
                     @include at-breakpoint($mobile){
@@ -195,38 +183,33 @@ section{
                     }
 
                     @include transition();
+
+                    a{
+                        color: $link-color;
+                    }
                 }
 
-                padding: 0 10px;
-                word-wrap: break-word;
-                color: $text-color;
-                @include font(16,20);
-                @include transition();
+                .text{
+                    margin: 15px 10px;
 
-                .full{
-                    display: none;
+                    .full{
+                        display: none;
+                    }
                 }
 
-                .part, .full{
-                    img{
+                img{
+                    width: 100%;
+                }
+
+                &.image{
+                    h3{
                         position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        z-index: 2;
-
-                        @include transition();
-                    }
-
-                    &.show{
-                        display: block;
+                        z-index: 3;
+                        a{
+                            @include text_shadow();
+                        }
                     }
                 }
-
-                @include at-breakpoint($mobile){
-                    @include font(17,26);
-                }
-
             }
 
             nav{

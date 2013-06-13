@@ -41,6 +41,10 @@
     box-shadow: $config, $second;
 }
 
+@mixin text_shadow($config: 1px 1px #fff){
+    text-shadow: $config; 
+}
+
 @mixin opacity($value){
     $ie: $value * 100;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity="+$ie+")";

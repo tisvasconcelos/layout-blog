@@ -33,9 +33,27 @@ Core = function(){
         	return 'not';
 	};
 
+    //public
 	_this.elementExist = function(element){
 		return ($(element).length > 0) ? true : false;
 	};
+
+    //public
+    _this.scrollDocumentTo = function(to){
+        if(to){
+            try{
+                //tenta realizar scrooll até  a posição do elemento
+                var targetOffset = $(to).offset().top;
+            }catch(e){
+                //tenta usar o elemento como posição (caso venha um numero)
+                var targetOffset = to;
+            }
+        }else{
+            //nao veio elemento volta para o comeco da pagina
+            var targetOffset = 0;
+        }
+        $('html,body').animate({scrollTop: targetOffset}, 1000);
+    }
 
 	//private
 	loadDependencies = function(){

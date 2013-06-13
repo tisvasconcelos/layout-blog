@@ -1,6 +1,4 @@
 About = function(){
-	_super = this.extend(new Core());
-
-
+	_super = Class.extend(_this, new Core());
 
 };

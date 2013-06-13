@@ -1516,6 +1516,9 @@ body {
   -webkit-print-color-adjust: exact;
   width: 100%;
 }
+body.disabled {
+  background: #000;
+}
 
 a {
   color: #025ec7;
@@ -1619,58 +1622,35 @@ section main article {
   text-align: left;
   position: relative;
   color: #000;
+  background: #fff;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
+  border: solid #a5a5a5 1px;
+  color: #000;
 }
 section main article:hover {
   -moz-box-shadow: 0 0px 20px #c1c1c1, inset 0px 0px 0px white;
   -webkit-box-shadow: 0 0px 20px #c1c1c1, inset 0px 0px 0px white;
   box-shadow: 0 0px 20px #c1c1c1, inset 0px 0px 0px white;
 }
-section main article.fully, section main article.partially {
-  border: solid #a5a5a5 1px;
-  color: #000;
-}
-section main article.fully h3 a, section main article.partially h3 a {
-  color: #025ec7;
-}
-section main article.fully img, section main article.partially img {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: alpha(opacity=100);
-  opacity: 1;
-}
-section main article.not {
-  border: 0 none;
-  color: #d1d1d1;
-}
-section main article.not h3 a {
-  color: #d1d1d1;
-}
-section main article.not img {
+section main article.disabled {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
   filter: alpha(opacity=10);
   opacity: 0.1;
 }
 section main article div {
-  padding: 0 10px;
-  word-wrap: break-word;
   color: #484848;
   font-size: 1em;
   line-height: 1.25;
-  -webkit-transition: all 200ms ease-out;
-  -moz-transition: all 200ms ease-out;
-  -o-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
 }
-section main article div h3, section main article div .title {
+section main article div h3 {
   display: block;
-  margin: 15px 0;
-  z-index: 3;
-  position: relative;
+  margin: 15px 10px;
+  width: 100%;
   font-size: 1.5em;
   line-height: 0.83333;
   -webkit-transition: all 200ms ease-out;
@@ -1679,33 +1659,29 @@ section main article div h3, section main article div .title {
   transition: all 200ms ease-out;
 }
 @media (max-width: 400px) {
-  section main article div h3, section main article div .title {
+  section main article div h3 {
     font-size: 1.625em;
     line-height: 0.76923;
   }
 }
-section main article div .full {
+section main article div h3 a {
+  color: #025ec7;
+}
+section main article div .text {
+  margin: 15px 10px;
+}
+section main article div .text .full {
   display: none;
 }
-section main article div .part img, section main article div .full img {
-  position: absolute;
-  top: 0;
-  left: 0;
+section main article div img {
   width: 100%;
-  z-index: 2;
-  -webkit-transition: all 200ms ease-out;
-  -moz-transition: all 200ms ease-out;
-  -o-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
 }
-section main article div .part.show, section main article div .full.show {
-  display: block;
+section main article div.image h3 {
+  position: absolute;
+  z-index: 3;
 }
-@media (max-width: 400px) {
-  section main article div {
-    font-size: 1.0625em;
-    line-height: 1.52941;
-  }
+section main article div.image h3 a {
+  text-shadow: 1px 1px white;
 }
 section main article nav {
   display: block;
